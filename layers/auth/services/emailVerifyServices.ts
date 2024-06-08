@@ -1,21 +1,26 @@
+import { useApi } from "~/core/composables/useApi";
+
 const useEmailVerifyServices = () => {
   const { params } = useRoute();
 
   const { add } = useToast();
   const { push } = useRouter();
+  const api = useApi();
 
-  const { execute, status } = useLazyFetch(
-    "https://jsonplaceholder.typicode.com/postsf",
-    {
-      immediate: false,
-      server: false,
-    },
-  );
+  const { execute, status } = api
+    .setMethod("POST")
+    .disableImmediate()
+    .setBody({
+      token: params.token,
+    })
+    .use("/auth/email-verification");
 
   const send = async () => {
     await execute();
 
     if (status.value === "success") {
+      await push("/auth");
+
       add({
         title: "Почта подтверждена",
         description: "Авторизуйтесь, чтобы начать использовать сервис",
