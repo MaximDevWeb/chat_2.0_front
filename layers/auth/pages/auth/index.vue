@@ -12,7 +12,7 @@ useHead({
 });
 
 const { state } = useLoginStore();
-const { onSubmit } = useLoginService();
+const { onSubmit, pending } = useLoginService();
 </script>
 
 <template>
@@ -31,7 +31,7 @@ const { onSubmit } = useLoginService();
       />
     </UFormGroup>
 
-    <UButton block type="submit">Войти</UButton>
+    <UButton block type="submit" :loading="pending">Войти</UButton>
   </UForm>
 
   <div class="mt-6 text-sm flex justify-between">
