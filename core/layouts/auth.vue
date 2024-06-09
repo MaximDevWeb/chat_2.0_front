@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Logo } from "~/core/components";
-</script>
-
 <template>
   <div class="h-screen flex items-center justify-center">
     <div class="flex">

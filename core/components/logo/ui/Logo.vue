@@ -1,5 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  height: {
+    type: Number,
+    default: 80,
+  },
+  width: {
+    type: Number,
+    default: 80,
+  },
+});
+</script>
 
 <template>
-  <NuxtImg height="80" width="80" src="/images/logo.svg" />
+  <NuxtImg :height :width src="/images/logo.svg" />
 </template>

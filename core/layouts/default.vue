@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  This is dashboard layout.
+  <div class="flex">
+    <Menu />
 
-  <slot />
+    <slot />
+  </div>
 </template>
